@@ -1,52 +1,26 @@
 package com.abnamro.apps.referenceandroid.test.screens
 
-import androidx.test.espresso.Espresso
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.typeText
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.espresso.matcher.ViewMatchers.withText
-import androidx.test.rule.ActivityTestRule
-import com.abnamro.apps.referenceandroid.MainActivity
 import com.abnamro.apps.referenceandroid.R
 
 class LoginScreen {
 
-
-    fun launchLoginScreen(testRule: ActivityTestRule<MainActivity>) {
-        testRule.launchActivity(null)
+    fun emailField(): Int {
+        return R.id.user_email
+    }
+    fun passwordField(): Int {
+        return R.id.password
     }
 
-    fun selectEmailField() {
-        onView(withId(R.id.user_name)).perform(click())
+    fun submitButton(): Int {
+        return R.id.button_submit
     }
 
-    fun selectPasswordField() {
-        onView(withId(R.id.password)).perform(click())
+    fun resetButton(): Int {
+        return R.id.button_reset
     }
 
-    fun enterEmail(email: String) {
-        onView(withId(R.id.user_name)).perform(typeText(email))
-    }
-
-    fun enterPassword(password: String) {
-        onView(withId(R.id.password)).perform(typeText(password))
-    }
-
-    fun closeKeyboard() {
-        Espresso.closeSoftKeyboard()
-        Thread.sleep(100)
-    }
-
-    fun clickSignInButton() {
-        onView(withId(R.id.button_submit)).perform(click())
-    }
-
-    fun isSuccessfulLogin() {
-        onView(withId(R.id.successful_login_text_view)).check(matches(isDisplayed()))
-        onView(withId(R.id.successful_login_text_view)).check(matches(withText(R.string.successful_login)))
+    fun successfulLoginMessage(): Int {
+        return R.id.successful_login_text_view
     }
 
 }

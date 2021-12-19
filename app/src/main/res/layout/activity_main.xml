@@ -22,10 +22,12 @@
             android:text="@string/login"/>
 
         <EditText
-            android:id="@+id/user_name"
+            android:id="@+id/user_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/user_name"
+            android:autofillHints="emailAddress"
+            android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:textAlignment="textStart"
             android:textColor="#6bfff7"
@@ -36,6 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
+            android:autofillHints="password"
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:textAlignment="textStart"
@@ -55,7 +58,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/cardview_compat_inset_shadow"
                 android:text="@string/reset"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"/>
 
             <Button
                 android:id="@+id/button_submit"
@@ -63,7 +67,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/cardview_compat_inset_shadow"
                 android:text="@string/submit"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"/>
+
         </LinearLayout>
         <RelativeLayout
             android:layout_width="fill_parent"

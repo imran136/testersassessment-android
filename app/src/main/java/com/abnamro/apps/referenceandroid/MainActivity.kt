@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // get reference to all views
-        val userEmail = findViewById<EditText>(R.id.user_name)
+        val userEmail = findViewById<EditText>(R.id.user_email)
         val password = findViewById<EditText>(R.id.password)
         val buttonReset = findViewById<Button>(R.id.button_reset)
         val buttonSubmit = findViewById<Button>(R.id.button_submit)

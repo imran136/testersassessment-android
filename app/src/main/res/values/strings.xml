@@ -5,9 +5,8 @@
     <string name="password">Password</string>
     <string name="reset">Reset</string>
     <string name="submit">Submit</string>
-    <string name="error_invalid_password">Password needs to be atleast 6 character!</string>
-    <string name="error_invalid_email">Please provide a valid email address</string>
+    <string name="error_invalid_password">Password needs to be atleast 6 characters</string>
+    <string name="error_invalid_email">Please provide a valid email</string>
     <string name="empty_field_required">This is a required field</string>
-    <string name="successful_login">Successful Login</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="successful_login">Success!</string>
 </resources>

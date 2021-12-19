@@ -1,6 +1,10 @@
 package com.abnamro.apps.referenceandroid.test.steps
 
 
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.*
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import com.abnamro.apps.referenceandroid.MainActivity
 import com.abnamro.apps.referenceandroid.test.screens.LoginScreen
@@ -9,6 +13,7 @@ import cucumber.api.java.Before
 import cucumber.api.java.en.And
 import cucumber.api.java.en.Given
 import cucumber.api.java.en.Then
+
 import cucumber.api.java.en.When
 
 
@@ -20,53 +25,49 @@ class LoginActivitySteps {
 
     @Before
     fun setup() {
-        //not needed now, but you may needed to setup mock responses before your screen starts
+        //Nothing is done here now, but can be used for generating mocks
     }
 
     @After
     fun tearDown() {
         activityRule.finishActivity()
-        //ActivityFinisher.finishOpenActivities() // Required for test scenarios with multiple activities or scenarios with more cases
     }
 
     @Given("^I start the application$")
     fun i_start_app() {
-        loginScreen.launchLoginScreen(activityRule)
+        activityRule.launchActivity(null)
     }
 
-    @When("^I click email field$")
-    fun i_click_email_field() {
-        loginScreen.selectEmailField()
+    @And("^I enter (\\S+) in the email field$")
+    fun i_enter_a_valid_email(email: String) {
+        if(email=="empty") onView(withId(loginScreen.emailField())).perform(clearText())
+        else onView(withId(loginScreen.emailField())).perform(typeText(email))
     }
 
-    @And("^I close the keyboard$")
-    fun i_close_the_keyboard() {
-        loginScreen.closeKeyboard()
+    @And("^I enter (\\S+) in the password field$")
+    fun i_enter_a_valid_password(password: String) {
+        onView(withId(loginScreen.passwordField())).perform(typeText(password))
     }
 
-    @And("^I enter valid email (\\S+)$")
-    fun i_enter_valid_email(email: String) {
-        loginScreen.enterEmail(email)
+    @When("^I click submit button$")
+    fun i_click_submit_button() {
+        onView(withId(loginScreen.submitButton())).perform(click())
     }
 
-    @And("^I click password field$")
-    fun i_click_password_field() {
-        loginScreen.selectPasswordField()
+    @Then("^I see successful login (\\S+)$")
+    fun i_see_successful_login_message(message: String) {
+        onView(withId(loginScreen.successfulLoginMessage())).check(matches(isDisplayed()))
+        onView(withId(loginScreen.successfulLoginMessage())).check(matches(withText(message)))
     }
 
-    @And("^I enter valid password (\\S+)$")
-    fun i_enter_valid_password(password: String) {
-        loginScreen.enterPassword(password)
+    @Then("^I see error shown for email field as '(.*)'$")
+    fun i_see_email_error_message(message: String) {
+        onView(withId(loginScreen.emailField())).check(matches(hasErrorText(message)))
     }
 
-    @And("^I click sign in button$")
-    fun i_click_sign_in_button() {
-        loginScreen.clickSignInButton()
-    }
-
-    @Then("^I expect to see successful login message$")
-    fun i_expect_to_see_successful_login_message() {
-        loginScreen.isSuccessfulLogin()
+    @Then("^I see error shown for password field as '(.*)'$")
+    fun i_see_password_error_message(message: String) {
+        onView(withId(loginScreen.passwordField())).check(matches(hasErrorText(message)))
     }
 
 }
