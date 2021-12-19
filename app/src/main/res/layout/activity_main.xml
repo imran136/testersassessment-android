@@ -10,14 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:background="#444444"
+        android:background="#e9f5f9"
         android:padding="25dp"
         android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25sp"
-            android:textColor="#6dffbf"
+            android:textColor="#0f3c4c"
             android:padding="30dp"
             android:text="@string/login"/>
 
@@ -30,7 +30,7 @@
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:textAlignment="textStart"
-            android:textColor="#6bfff7"
+            android:textColor="#0f3c4c"
             android:textColorHint="#52afaa" />
 
         <EditText
@@ -42,7 +42,7 @@
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:textAlignment="textStart"
-            android:textColor="#6bfff7"
+            android:textColor="#0f3c4c"
             android:textColorHint="#52afaa" />
 
         <LinearLayout
@@ -58,8 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/cardview_compat_inset_shadow"
                 android:text="@string/reset"
-                android:textAllCaps="false"
-                style="?android:attr/borderlessButtonStyle"/>
+                android:textAllCaps="false"/>
 
             <Button
                 android:id="@+id/button_submit"
@@ -67,8 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/cardview_compat_inset_shadow"
                 android:text="@string/submit"
-                android:textAllCaps="false"
-                style="?android:attr/borderlessButtonStyle"/>
+                android:textAllCaps="false"/>
 
         </LinearLayout>
         <RelativeLayout
