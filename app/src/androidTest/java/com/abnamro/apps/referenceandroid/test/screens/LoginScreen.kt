@@ -1,3 +1,5 @@
+//LoginScreen has all the page objects for login screen which are needed for step definitions
+
 package com.abnamro.apps.referenceandroid.test.screens
 
 import com.abnamro.apps.referenceandroid.R
