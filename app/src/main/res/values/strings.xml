@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Login Test</string>
+    <string name="app_name">Reference Android</string>
     <string name="login">Your credentials</string>
     <string name="user_name">Email</string>
     <string name="password">Password</string>
