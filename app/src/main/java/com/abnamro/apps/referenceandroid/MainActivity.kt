@@ -74,11 +74,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //checking password has more than 5 character or not
     private fun isPasswordValid(passwordStr: String): Any {
-        return passwordStr.length > 6
+        return passwordStr.length > 5
     }
 
 
+    //checking if the email is valid or not
     private fun isEmailValid(emailStr: String): Any {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(emailStr).matches()
     }
