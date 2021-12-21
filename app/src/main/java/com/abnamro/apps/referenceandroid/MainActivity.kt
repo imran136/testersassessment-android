@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun isEmailValid(emailStr: String): Any {
-        return emailStr.contains("@")
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(emailStr).matches()
     }
 
 
